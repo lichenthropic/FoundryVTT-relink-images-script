@@ -59,9 +59,8 @@ async function determinenewPath(html) {
     // for every entity in canvas.tokens.placeables remove oldPath and replace it with newPath
     // then set the new image path back in the entity 
     for (i = 0; i < canvas.tokens.placeables.length; i++) {
-
         replacementPath = "";
-        originalPath =  canvas.tokens.placeables[i].data.img;
+        originalPath =  canvas.tokens.placeables[i].data.texture.src;
         if (originalPath != "") replacementPath = originalPath.replace(oldPath, newPath);
 
         console.log("currentToken: " + canvas.tokens.placeables[i].data.name);
@@ -72,7 +71,7 @@ async function determinenewPath(html) {
 
         console.log("entityId: " + entityId);
     
-        originalTilePath =  canvas.tokens.placeables[i].data.img;
+        originalTilePath =  canvas.tokens.placeables[i].data.texture.src;
         tokenReplacementPath = originalTilePath.replace(oldPath, newPath); 
 
         console.log("tokenReplacementPath: " + tokenReplacementPath);
